@@ -1,0 +1,105 @@
+.historico {
+  padding: 20px;
+  max-width: 800px;
+  margin: 60px auto 0 auto; /* margin-top de 40px para descer do topo */
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5; /* Fundo levemente cinza para contraste */
+  color: #222; /* Cor do texto principal */
+}
+
+
+.btn-back {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 8px 12px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s;
+  color: #222; /* garante legibilidade */
+}
+
+.btn-back:hover {
+  background-color: #ccc;
+}
+
+.historico-header h2 {
+  margin-bottom: 5px;
+  font-size: 26px;
+  color: #1e6d42; /* verde escuro para contraste */
+}
+
+.historico-header p {
+  margin-bottom: 20px;
+  color: #333; /* subtítulo mais visível */
+}
+
+.historico-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço entre cada item do histórico */
+  max-height: 70vh; /* Altura máxima com scroll */
+  overflow-y: auto;
+  padding-right: 10px; /* Espaço para scroll */
+}
+
+.historico-item {
+  background-color: #ffffff; /* fundo branco para cada card */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* sombra suave */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: #222; /* Texto escuro */
+  transition: transform 0.1s;
+}
+
+.historico-item:hover {
+  transform: translateY(-2px); /* efeito sutil ao passar o mouse */
+}
+
+.historico-info {
+  flex: 1;
+}
+
+.historico-info .data {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #555; /* Data mais discreta, mas legível */
+}
+
+.historico-info .texto {
+  white-space: pre-wrap; /* Mantém quebras de linha */
+  margin-bottom: 10px;
+  color: #222; /* Texto do pedido */
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.btn-reenviar {
+  background-color: #25d366; /* Verde WhatsApp */
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  align-self: start; /* botão alinhado ao topo do card */
+}
+
+.btn-reenviar:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-1px);
+}
+
+.vazio {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  padding: 20px 0;
+}

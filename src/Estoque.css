@@ -1,0 +1,181 @@
+/* ============================= */
+/* CONTAINER GERAL */
+/* ============================= */
+.estoque {
+  min-height: 100vh;
+  padding-top: 56px; /* espaço para o botão voltar */
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 24px;
+
+  text-align: center;
+}
+
+/* ============================= */
+/* BOTÃO VOLTAR */
+/* ============================= */
+.btn-back {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  border-radius: 14px;
+
+  z-index: 1000;
+
+  background: linear-gradient(135deg, #e02b1e, #ec3f29);
+  color: #fff;
+  border: none;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+.estoque-header h2 {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+
+/* ============================= */
+/* LISTA */
+/* ============================= */
+.estoque-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* ============================= */
+/* ITEM */
+/* ============================= */
+.estoque-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 14px;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* NOME */
+.item-nome {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ============================= */
+/* CONTROLE */
+/* ============================= */
+.item-controle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* BOTÕES + - */
+.item-controle button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+
+  font-size: 1rem;
+  font-weight: bold;
+
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+
+  cursor: pointer;
+}
+
+.item-controle button:active {
+  transform: scale(0.9);
+}
+
+/* QUANTIDADE */
+.item-qtd {
+  min-width: 60px;
+  text-align: center;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+/* CHECKBOX 1/2 */
+.meio-check {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 0.75rem;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+/* ============================= */
+/* BOTÃO ENVIAR — FINAL DA PÁGINA */
+/* ============================= */
+.btn-enviar {
+  margin: 32px auto 24px;
+
+  padding: 14px 36px;
+  min-width: 220px;
+
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: #fff;
+  border: none;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-enviar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(76, 175, 80, 0.45);
+}
+
+.btn-enviar:active {
+  transform: scale(0.96);
+}
+
+/* ============================= */
+/* MOBILE EXTREMO */
+/* ============================= */
+@media (max-width: 360px) {
+  .estoque-item {
+    padding: 10px 10px;
+  }
+
+  .item-nome {
+    font-size: 0.9rem;
+  }
+
+  .item-qtd {
+    min-width: 52px;
+    font-size: 0.8rem;
+  }
+
+  .item-controle {
+    gap: 6px;
+  }
+
+  .item-controle button {
+    width: 24px;
+    height: 24px;
+    font-size: 0.9rem;
+  }
+}
