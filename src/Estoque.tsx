@@ -137,7 +137,7 @@ function Estoque({ onBack }: EstoqueProps) {
     // ===============================
     // ABRIR WHATSAPP
     // ===============================
-    const numeroPatrao = '5512997620199' // coloque o número real aqui
+    const numeroPatrao = '5512983081115' // coloque o número real aqui
     const url = `https://wa.me/${numeroPatrao}?text=${encodeURIComponent(texto)}`
     window.open(url, '_blank')
   }
