@@ -32,7 +32,7 @@ export default function Historico({ onBack }: HistoricoProps) {
   }, [])
 
   function reenviarWhats(texto: string) {
-    const numeroPatrao = '5512997620199' // número fixo
+    const numeroPatrao = '5512983081115' // número fixo
     const url = `https://wa.me/${numeroPatrao}?text=${encodeURIComponent(texto)}`
     window.open(url, '_blank')
   }

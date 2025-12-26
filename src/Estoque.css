@@ -1,6 +1,4 @@
-/* ============================= */
-/* CONTAINER GERAL */
-/* ============================= */
+
 .estoque {
   min-height: 100vh;
   padding-top: 56px; /* espaço para o botão voltar */
@@ -11,9 +9,6 @@
   text-align: center;
 }
 
-/* ============================= */
-/* BOTÃO VOLTAR */
-/* ============================= */
 .btn-back {
   position: fixed;
   top: 12px;
@@ -32,17 +27,11 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* ============================= */
-/* HEADER */
-/* ============================= */
 .estoque-header h2 {
   font-size: 1.25rem;
   margin-bottom: 6px;
 }
 
-/* ============================= */
-/* LISTA */
-/* ============================= */
 .estoque-list {
   display: flex;
   flex-direction: column;
@@ -50,9 +39,6 @@
   margin-top: 16px;
 }
 
-/* ============================= */
-/* ITEM */
-/* ============================= */
 .estoque-item {
   display: flex;
   justify-content: space-between;
@@ -65,22 +51,17 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* NOME */
 .item-nome {
   font-size: 1rem;
   font-weight: 600;
 }
 
-/* ============================= */
-/* CONTROLE */
-/* ============================= */
 .item-controle {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-/* BOTÕES + - */
 .item-controle button {
   width: 28px;
   height: 28px;
@@ -100,7 +81,6 @@
   transform: scale(0.9);
 }
 
-/* QUANTIDADE */
 .item-qtd {
   min-width: 60px;
   text-align: center;
@@ -110,7 +90,6 @@
   opacity: 0.85;
 }
 
-/* CHECKBOX 1/2 */
 .meio-check {
   display: flex;
   align-items: center;
@@ -121,9 +100,6 @@
   opacity: 0.85;
 }
 
-/* ============================= */
-/* BOTÃO ENVIAR — FINAL DA PÁGINA */
-/* ============================= */
 .btn-enviar {
   margin: 32px auto 24px;
 
@@ -152,9 +128,6 @@
   transform: scale(0.96);
 }
 
-/* ============================= */
-/* MOBILE EXTREMO */
-/* ============================= */
 @media (max-width: 360px) {
   .estoque-item {
     padding: 10px 10px;

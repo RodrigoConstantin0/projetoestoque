@@ -41,7 +41,7 @@ function App() {
           <footer className="footer">
             Desenvolvido por Rodrigo Constantino —{' '}
             <a
-              href="https://github.com/rodrigoconstantino"
+              href="https://github.com/RodrigoConstantin0/projetoestoque"
               target="_blank"
               rel="noopener noreferrer"
             >
