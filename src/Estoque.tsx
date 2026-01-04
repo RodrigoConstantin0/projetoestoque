@@ -58,7 +58,12 @@ function Estoque({ onBack }: EstoqueProps) {
     { id: 33, nome: 'Brócolis congelado 2k', quantidade: 0, unidade: 'un', meio: false },
     { id: 34, nome: 'Batata bem brazil 2k 6x6', quantidade: 0, unidade: 'un', meio: false },
     { id: 35, nome: 'Carne moída 1k', quantidade: 0, unidade: 'un', meio: false },
-    { id: 36, nome: 'Sal sache cx', quantidade: 0, unidade: 'un', meio: false },   
+    { id: 36, nome: 'Parmesão Escala 1.5', quantidade: 0, unidade: 'un', meio: false },   
+    { id: 37, nome: 'Hambúrguer misterbife 100g', quantidade: 0, unidade: 'un', meio: false },
+    { id: 38, nome: 'Carne seca 5kg', quantidade: 0, unidade: 'un', meio: false },
+    { id: 39, nome: 'Gorgonzola peça vigor', quantidade: 0, unidade: 'un', meio: false },
+    { id: 40, nome: 'Balde champignon ', quantidade: 0, unidade: 'un', meio: false },
+    { id: 41, nome: 'Azeitona fatiada balde', quantidade: 0, unidade: 'un', meio: false },
   ])
 
   // Funções de controle da quantidade e meio
