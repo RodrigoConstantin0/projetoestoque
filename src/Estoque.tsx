@@ -21,7 +21,6 @@ type HistoricoItem = {
 }
 
 function Estoque({ onBack }: EstoqueProps) {
-  // Lista de itens do estoque
   const [itens, setItens] = useState<ItemEstoque[]>([
     { id: 1, nome: 'Azeitona verde 2k', quantidade: 0, unidade: 'un', meio: false },
     { id: 2, nome: 'Palmito lata 500g', quantidade: 0, unidade: 'un', meio: false },
@@ -42,7 +41,7 @@ function Estoque({ onBack }: EstoqueProps) {
     { id: 17, nome: 'Aliche ribamar', quantidade: 0, unidade: 'un', meio: false },
     { id: 18, nome: 'Bacon Cubo Misterbife', quantidade: 0, unidade: 'pc', meio: false },
     { id: 19, nome: 'Bacon Fatiado papada', quantidade: 0, unidade: 'pc', meio: false },
-    { id: 20, nome: 'Requeijao  escala 1.5', quantidade: 0, unidade: 'un', meio: false },
+    { id: 20, nome: 'Requeijao escala 1.5', quantidade: 0, unidade: 'un', meio: false },
     { id: 21, nome: 'Cheddar escala', quantidade: 0, unidade: 'un', meio: false },
     { id: 22, nome: 'Cream Cheese escala', quantidade: 0, unidade: 'un', meio: false },
     { id: 23, nome: 'Goiabada foniavel', quantidade: 0, unidade: 'un', meio: false },
@@ -54,19 +53,18 @@ function Estoque({ onBack }: EstoqueProps) {
     { id: 29, nome: 'Maionese cx', quantidade: 0, unidade: 'cx', meio: false },
     { id: 30, nome: 'Mostarda cepera sache', quantidade: 0, unidade: 'cx', meio: false },
     { id: 31, nome: 'Trigo Anaconda p/Pizza', quantidade: 0, unidade: 'pc', meio: false },
-    { id: 32, nome: 'Frango s/osso ', quantidade: 0, unidade: 'cx', meio: false },
+    { id: 32, nome: 'Frango s/osso', quantidade: 0, unidade: 'cx', meio: false },
     { id: 33, nome: 'Brócolis congelado 2k', quantidade: 0, unidade: 'un', meio: false },
     { id: 34, nome: 'Batata bem brazil 2k 6x6', quantidade: 0, unidade: 'un', meio: false },
     { id: 35, nome: 'Carne moída 1k', quantidade: 0, unidade: 'un', meio: false },
-    { id: 36, nome: 'Parmesão Escala 1.5', quantidade: 0, unidade: 'un', meio: false },   
+    { id: 36, nome: 'Parmesão Escala 1.5', quantidade: 0, unidade: 'un', meio: false },
     { id: 37, nome: 'Hambúrguer misterbife 100g', quantidade: 0, unidade: 'un', meio: false },
     { id: 38, nome: 'Carne seca 5kg', quantidade: 0, unidade: 'un', meio: false },
     { id: 39, nome: 'Gorgonzola peça vigor', quantidade: 0, unidade: 'un', meio: false },
-    { id: 40, nome: 'Balde champignon ', quantidade: 0, unidade: 'un', meio: false },
+    { id: 40, nome: 'Balde champignon', quantidade: 0, unidade: 'un', meio: false },
     { id: 41, nome: 'Azeitona fatiada balde', quantidade: 0, unidade: 'un', meio: false },
   ])
 
-  // Funções de controle da quantidade e meio
   function aumentar(id: number) {
     setItens(prev =>
       prev.map(item =>
@@ -97,41 +95,39 @@ function Estoque({ onBack }: EstoqueProps) {
     )
   }
 
-  // Função principal: enviar pedido para WhatsApp e salvar no histórico
   function enviarWhatsApp() {
-    // Filtra os itens que foram selecionados
-    const itensSelecionados = itens.filter(
-      item => item.quantidade > 0 || item.meio
-    )
+    // 🔥 AQUI ESTÁ A CORREÇÃO
+    const itensSelecionados = itens
 
-    if (itensSelecionados.length === 0) {
-      alert('Nenhum item selecionado')
-      return
-    }
-
-    // Monta o texto do pedido
     const linhas = itensSelecionados.map(item => {
-      const meio = item.meio ? '½' : ''
-      return `• ${item.nome}: ${item.quantidade}${meio} ${item.unidade}`
+      let quantidadeTexto = ''
+
+      if (item.quantidade > 0 && item.meio) {
+        quantidadeTexto = `${item.quantidade}½`
+      } else if (item.quantidade > 0) {
+        quantidadeTexto = `${item.quantidade}`
+      } else if (item.meio) {
+        quantidadeTexto = `½`
+      } else {
+        quantidadeTexto = `0`
+      }
+
+      return `• ${item.nome}: ${quantidadeTexto} ${item.unidade}`
     })
 
-    const data = new Date()
-    const dataFormatada = data.toLocaleString('pt-BR')
+    const data = new Date().toLocaleString('pt-BR')
 
     const texto =
       `🍕 Pedido de Reposição\n\n` +
       linhas.join('\n') +
-      `\n\n 🕑 ${dataFormatada}`
+      `\n\n🕑 ${data}`
 
-    // ===============================
-    // SALVA NO LOCALSTORAGE
-    // ===============================
     const historicoAtual: HistoricoItem[] =
       JSON.parse(localStorage.getItem('historicoEstoque') || '[]')
 
     historicoAtual.push({
       id: Date.now(),
-      data: dataFormatada,
+      data,
       texto,
       itens: itensSelecionados,
     })
@@ -141,10 +137,7 @@ function Estoque({ onBack }: EstoqueProps) {
       JSON.stringify(historicoAtual)
     )
 
-    // ===============================
-    // ABRIR WHATSAPP
-    // ===============================
-    const numeroPatrao = '5512983081115' // coloque o número real aqui
+    const numeroPatrao = '5512983081115'
     const url = `https://wa.me/${numeroPatrao}?text=${encodeURIComponent(texto)}`
     window.open(url, '_blank')
   }
@@ -155,26 +148,24 @@ function Estoque({ onBack }: EstoqueProps) {
         ← Voltar
       </button>
 
-      <div className="estoque-header">
-        <h2>Lista de Mercadorias</h2>
-      </div>
+      <h2>Lista de Mercadorias</h2>
 
       <div className="estoque-list">
         {itens.map(item => (
           <div key={item.id} className="estoque-item">
-            <span className="item-nome">{item.nome}</span>
+            <span>{item.nome}</span>
 
             <div className="item-controle">
               <button onClick={() => diminuir(item.id)}>-</button>
 
-              <span className="item-qtd">
+              <span>
                 {item.quantidade}
                 {item.meio && '½'} {item.unidade}
               </span>
 
               <button onClick={() => aumentar(item.id)}>+</button>
 
-              <label className="meio-check">
+              <label>
                 <input
                   type="checkbox"
                   checked={item.meio}
@@ -187,7 +178,7 @@ function Estoque({ onBack }: EstoqueProps) {
         ))}
       </div>
 
-      <button className="btn btn-start btn-enviar" onClick={enviarWhatsApp}>
+      <button className="btn-enviar" onClick={enviarWhatsApp}>
         Enviar para WhatsApp
       </button>
     </div>
@@ -195,6 +186,3 @@ function Estoque({ onBack }: EstoqueProps) {
 }
 
 export default Estoque
-
-
-
