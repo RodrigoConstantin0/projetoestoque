@@ -63,6 +63,7 @@ function Estoque({ onBack }: EstoqueProps) {
     { id: 39, nome: 'Gorgonzola peça vigor', quantidade: 0, unidade: 'un', meio: false },
     { id: 40, nome: 'Balde champignon', quantidade: 0, unidade: 'un', meio: false },
     { id: 41, nome: 'Azeitona fatiada balde', quantidade: 0, unidade: 'un', meio: false },
+    { id: 42, nome: 'Mussarela Búfala', quantidade: 0, unidade: 'un', meio: false },
   ])
 
   function aumentar(id: number) {
